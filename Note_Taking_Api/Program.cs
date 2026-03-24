@@ -23,6 +23,13 @@ namespace Note_Taking_Api
             builder.Services.AddScoped<INotesRepository, NoteRepo>();
             builder.Services.AddScoped<NoteServices>();
 
+            builder.Services.AddCors(option =>
+            {
+                option.AddPolicy("AllowAll", policy =>
+                {
+                    policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                });
+            });
 
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
             builder.Services.AddDbContext<MyDbContext>(options =>
@@ -40,6 +47,7 @@ namespace Note_Taking_Api
 
             app.UseSwagger();
             app.UseSwaggerUI();
+            app.UseCors("AllowAll");
 
             app.UseHttpsRedirection();
 
