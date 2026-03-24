@@ -38,6 +38,9 @@ namespace Note_Taking_Api
                 app.UseSwaggerUI();
             }
 
+            app.UseSwagger();
+            app.UseSwaggerUI();
+
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
