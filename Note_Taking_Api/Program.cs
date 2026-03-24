@@ -44,7 +44,7 @@ namespace Note_Taking_Api
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
+            app.UseDeveloperExceptionPage();
             app.UseSwagger();
             app.UseSwaggerUI();
             app.UseCors("AllowAll");
